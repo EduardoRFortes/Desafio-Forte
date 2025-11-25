@@ -20,62 +20,49 @@ O projeto utiliza Docker para subir o banco PostgreSQL.
 
 Na raiz do projeto, suba o container:
 
-\`\`\`bash
 docker-compose up -d
-\`\`\`
+
 > Aguarde alguns segundos para o banco iniciar.
 
 ### 2. Configuração do Backend (API)
 Acesse a pasta \`api\`:
 
-\`\`\`bash
 cd api
-\`\`\`
 
 Crie um arquivo \`.env\` na raiz da pasta \`api\` com as seguintes configurações:
 
-\`\`\`env
 DB_USER=admin
 DB_HOST=localhost
 DB_NAME=postgres
 DB_PASSWORD=admin
 DB_PORT=5432
-\`\`\`
 
 Instale as dependências e popule o banco de dados (Seed):
 
-\`\`\`bash
 yarn install
 
 # Este comando cria as tabelas e insere dados iniciais (Clientes/Livros)
 yarn ts-node -r dotenv/config src/database/seed.ts
-\`\`\`
 
 Inicie o servidor:
 
-\`\`\`bash
 yarn dev
-\`\`\`
+
 *A API rodará em \`http://localhost:8080\`*
 
 ### 3. Configuração do Frontend (Web)
 Em um novo terminal, acesse a pasta \`web\`:
 
-\`\`\`bash
 cd web
-\`\`\`
 
 Instale as dependências:
 
-\`\`\`bash
 yarn install
-\`\`\`
 
 Inicie a aplicação:
 
-\`\`\`bash
 yarn start
-\`\`\`
+
 *O frontend rodará em \`http://localhost:3000\`*
 
 ## Rodando no GitHub CodeSpaces
